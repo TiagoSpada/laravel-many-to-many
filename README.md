@@ -60,10 +60,10 @@ I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che a
 -   [x] creare la migration per la tabella technologies
 -   [x] creare il model Technology
 -   [x] creare la migration per la tabella pivot project_technology
--   [] aggiungere ai model Technology e Project i metodi per definire la relazione many to many
--   [] visualizzare nella pagina di dettaglio di un progetto le tecnologie utilizzate, se presenti
+-   [x] aggiungere ai model Technology e Project i metodi per definire la relazione many to many
+-   [x] visualizzare nella pagina di dettaglio di un progetto le tecnologie utilizzate, se presenti
 -   Bonus 1:
--   -   [] creare il seeder per il model Technology.
+-   -   [x] creare il seeder per il model Technology.
 -   Bonus 2:
 -   -   [] aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
 -   -   [] Buon lavoro e buon divertimento!
