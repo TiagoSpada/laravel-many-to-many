@@ -35,6 +35,28 @@
                 </select>
                 <label for="type-id">Selezione la tipologia</label>
             </div>
+            <div class="mb-3">
+                <label>Tecnologie del progetto</label>
+                <br>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-switch d-inline-block mx-2">
+                        @if ($errors->any())
+                            <input class="form-check-input" type="checkbox" role="switch"
+                                id="technology-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]"
+                                {{ in_array($technology->id, old('technologies', $project->technologies)) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
+                        @else
+                            <input class="form-check-input" type="checkbox" role="switch"
+                                id="technology-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]"
+                                {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
+                        @endif
+
+                    </div>
+                @endforeach
+            </div>
             <button class="btn btn-primary">Conferma modifiche</button>
         </form>
     </div>

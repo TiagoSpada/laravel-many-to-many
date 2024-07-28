@@ -67,3 +67,18 @@ I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che a
 -   Bonus 2:
 -   -   [] aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
 -   -   [] Buon lavoro e buon divertimento!
+
+## relazione many to many (giorno 2)
+
+Ciao ragazzi,
+Esercizio di oggi: Laravel Boolfolio - Project Technology
+nome repo: laravel-many-to-many
+Continuiamo a lavorare sul codice di ieri, stessa repo.
+I task sono:
+
+-   [x] permettere all’utente di associare le tecnologie nella pagina di creazione e modifica di un progetto
+-   [x] gestire il salvataggio dell’associazione progetto-tecnologie con opportune regole di validazione
+-   [] eliminare opportunamente le relazioni alla cancellazione del progetto/technology
+
+Buon lavoro e buon divertimento!
+A lunedì!

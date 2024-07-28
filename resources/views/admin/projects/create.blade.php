@@ -35,6 +35,19 @@
                 </select>
                 <label for="type-id">Selezione la tipologia</label>
             </div>
+
+            <div class="mb-3">
+                <label>Tecnologie del progetto</label>
+                <br>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-switch d-inline-block mx-2">
+                        <input class="form-check-input" type="checkbox" role="switch" id="technology-{{ $technology->id }}"
+                            value="{{ $technology->id }}" name="technologies[]">
+                        <label class="form-check-label"
+                            for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
+                    </div>
+                @endforeach
+            </div>
             <button class="btn btn-primary"><i class="fa-solid fa-pencil"></i>Crea nuovo progetto</button>
         </form>
     </div>

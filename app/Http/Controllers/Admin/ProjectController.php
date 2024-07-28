@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Technology;
 use App\Models\Type;
 
 class ProjectController extends Controller
@@ -26,8 +27,14 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types'));
+        $data = [
+            'technologies' => $technologies,
+            'types' => $types
+        ];
+
+        return view('admin.projects.create', $data);
     }
 
     /**
@@ -36,10 +43,13 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
+
         $project = new Project();
         $project->fill($data);
-
         $project->save();
+        if ($request->has('technologies')) {
+            $project->technologies()->attach($request->technologies);
+        }
 
 
         return redirect()->route('admin.projects.index');
@@ -58,9 +68,12 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $types = Type::all();
+        $technologies = Technology::all();
         $data = [
             'project' => $project,
-            'types' => Type::all()
+            'types' => $types,
+            'technologies' => $technologies
         ];
         return view('admin.projects.edit', $data);
     }
@@ -73,6 +86,13 @@ class ProjectController extends Controller
         $data = $request->validated();
         $project->update($data);
         $project->save();
+
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        } else {
+            $project->technologies()->detach();
+        }
+
 
         return redirect()->route('admin.projects.show', $project);
     }
