@@ -5,7 +5,7 @@
         <h1>{{ $project->title }}</h1>
         <p class="fs-5 mt-4">{{ $project->description }}</p>
         <hr>
-        <div>Type: {{ $project->type?->title ?: 'Tipo non presente nel DB' }}</div>
+        <div>Type: {{ $project->type?->title ?: 'non presente nel DB' }}</div>
         <hr>
         <div class="d-flex gap-2 align-items-center">
             <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-warning fs-6" as="button">
